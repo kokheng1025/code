@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.props" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8ED6F23-082A-443D-A6EE-1C030999519A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VB6ActiveXDllConverter</RootNamespace>
+    <AssemblyName>VB6ActiveXDllConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=e9931a4108ef2354, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr4.Runtime.4.6.5-rc002\lib\net45\Antlr4.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeModels\Common.cs" />
+    <Compile Include="CodeModels\Interfaces.cs" />
+    <Compile Include="CodeModels\VB6CodeModelFactory.cs" />
+    <Compile Include="CodeModels\VB6CodeModelFactoryContext.cs" />
+    <Compile Include="CodeModels\VBAmbiguousIdentifier.cs" />
+    <Compile Include="CodeModels\VBAmbiguousKeyword.cs" />
+    <Compile Include="CodeModels\VBArgCall.cs" />
+    <Compile Include="CodeModels\VBArgDefaultValue.cs" />
+    <Compile Include="CodeModels\VBArgsCall.cs" />
+    <Compile Include="CodeModels\VBBaseAtomicRuleStatement.cs" />
+    <Compile Include="CodeModels\VBBaseBlockSubStatement.cs" />
+    <Compile Include="CodeModels\VBBaseSingleLineSubStatement.cs" />
+    <Compile Include="CodeModels\VBBaseValueStatement.cs" />
+    <Compile Include="CodeModels\VBBlockIfThenElse.cs" />
+    <Compile Include="CodeModels\VBCertainIdentifier.cs" />
+    <Compile Include="CodeModels\VBComparisonOperator.cs" />
+    <Compile Include="CodeModels\VBConversionMessage.cs" />
+    <Compile Include="CodeModels\VBDeftypeStmt.cs" />
+    <Compile Include="CodeModels\VBGoSubStmt.cs" />
+    <Compile Include="CodeModels\VBNewLine.cs" />
+    <Compile Include="CodeModels\VBOnGoSubStmt.cs" />
+    <Compile Include="CodeModels\VBOnGoToStmt.cs" />
+    <Compile Include="CodeModels\VBReturnStmt.cs" />
+    <Compile Include="CodeModels\VBSavepictureStmt.cs" />
+    <Compile Include="CodeModels\VBText.cs" />
+    <Compile Include="CodeModels\VBTypeOfStmt.cs" />
+    <Compile Include="CodeModels\VBComplexType.cs" />
+    <Compile Include="CodeModels\VBDictionaryCallStmt.cs" />
+    <Compile Include="CodeModels\VBFieldLength.cs" />
+    <Compile Include="CodeModels\VBGoToStmt.cs" />
+    <Compile Include="CodeModels\VBIfBlockStmt.cs" />
+    <Compile Include="CodeModels\VBIfConditionStmt.cs" />
+    <Compile Include="CodeModels\VBIfElseBlockStmt.cs" />
+    <Compile Include="CodeModels\VBIfElseIfBlockStmt.cs" />
+    <Compile Include="CodeModels\VBImplementsStmt.cs" />
+    <Compile Include="CodeModels\VBICS_S_DictionaryCall.cs" />
+    <Compile Include="CodeModels\VBICS_S_MemberCall.cs" />
+    <Compile Include="CodeModels\VBICS_B_MemberProcedureCall.cs" />
+    <Compile Include="CodeModels\VBICS_S_NestedProcedureCall.cs" />
+    <Compile Include="CodeModels\VBICS_B_ProcedureCall.cs" />
+    <Compile Include="CodeModels\VBICS_S_ProcedureOrArrayCall.cs" />
+    <Compile Include="CodeModels\VBInlineIfThenElse.cs" />
+    <Compile Include="CodeModels\VBInputStmt.cs" />
+    <Compile Include="CodeModels\VBKillStmt.cs" />
+    <Compile Include="CodeModels\VBLetStmt.cs" />
+    <Compile Include="CodeModels\VBLetterrange.cs" />
+    <Compile Include="CodeModels\VBLineInputStmt.cs" />
+    <Compile Include="CodeModels\VBLineLabel.cs" />
+    <Compile Include="CodeModels\VBLiteral.cs" />
+    <Compile Include="CodeModels\VBLoadStmt.cs" />
+    <Compile Include="CodeModels\VBLockStmt.cs" />
+    <Compile Include="CodeModels\VBLsetStmt.cs" />
+    <Compile Include="CodeModels\VBMidStmt.cs" />
+    <Compile Include="CodeModels\VBMkdirStmt.cs" />
+    <Compile Include="CodeModels\VBNameStmt.cs" />
+    <Compile Include="CodeModels\VBOnErrorStmt.cs" />
+    <Compile Include="CodeModels\VBOpenStmt.cs" />
+    <Compile Include="CodeModels\VBOutputList.cs" />
+    <Compile Include="CodeModels\VBOutputList_Expression.cs" />
+    <Compile Include="CodeModels\VBPrintStmt.cs" />
+    <Compile Include="CodeModels\VBPublicPrivateGlobalVisibility.cs" />
+    <Compile Include="CodeModels\VBPublicPrivateVisibility.cs" />
+    <Compile Include="CodeModels\VBPutStmt.cs" />
+    <Compile Include="CodeModels\VBRaiseEventStmt.cs" />
+    <Compile Include="CodeModels\VBRandomizeStmt.cs" />
+    <Compile Include="CodeModels\VBRedimSubStmt.cs" />
+    <Compile Include="CodeModels\VBRedimStmt.cs" />
+    <Compile Include="CodeModels\VBResetStmt.cs" />
+    <Compile Include="CodeModels\VBResumeStmt.cs" />
+    <Compile Include="CodeModels\VBRmdirStmt.cs" />
+    <Compile Include="CodeModels\VBRsetStmt.cs" />
+    <Compile Include="CodeModels\VBSaveSettingStmt.cs" />
+    <Compile Include="CodeModels\VBSeekStmt.cs" />
+    <Compile Include="CodeModels\VBSelectCaseStmt.cs" />
+    <Compile Include="CodeModels\VBSC_Case.cs" />
+    <Compile Include="CodeModels\VBCaseCondElse.cs" />
+    <Compile Include="CodeModels\VBCaseCondExpr.cs" />
+    <Compile Include="CodeModels\VBCaseCondExprIs.cs" />
+    <Compile Include="CodeModels\VBCaseCondExprTo.cs" />
+    <Compile Include="CodeModels\VBCaseCondExprValue.cs" />
+    <Compile Include="CodeModels\VBSendkeysStmt.cs" />
+    <Compile Include="CodeModels\VBSetStmt.cs" />
+    <Compile Include="CodeModels\VBSetAttr.cs" />
+    <Compile Include="CodeModels\VBStopStmt.cs" />
+    <Compile Include="CodeModels\VBICS_S_MembersCall.cs" />
+    <Compile Include="CodeModels\VBTimeStmt.cs" />
+    <Compile Include="CodeModels\VBUnloadStmt.cs" />
+    <Compile Include="CodeModels\VBUnlockStmt.cs" />
+    <Compile Include="CodeModels\VBBaseType.cs" />
+    <Compile Include="CodeModels\VBVariableListStmt.cs" />
+    <Compile Include="CodeModels\VBICS_S_VariableOrProcedureCall.cs" />
+    <Compile Include="CodeModels\VBType.cs" />
+    <Compile Include="CodeModels\VBVsAdd.cs" />
+    <Compile Include="CodeModels\VBVsAddressOf.cs" />
+    <Compile Include="CodeModels\VBVsAmp.cs" />
+    <Compile Include="CodeModels\VBVsAnd.cs" />
+    <Compile Include="CodeModels\VBVsAssign.cs" />
+    <Compile Include="CodeModels\VBVsDiv.cs" />
+    <Compile Include="CodeModels\VBVsEq.cs" />
+    <Compile Include="CodeModels\VBVsEqv.cs" />
+    <Compile Include="CodeModels\VBVsGeq.cs" />
+    <Compile Include="CodeModels\VBVsGt.cs" />
+    <Compile Include="CodeModels\VBVsICS.cs" />
+    <Compile Include="CodeModels\VBVsImp.cs" />
+    <Compile Include="CodeModels\VBVsIs.cs" />
+    <Compile Include="CodeModels\VBVsLeq.cs" />
+    <Compile Include="CodeModels\VBVsLike.cs" />
+    <Compile Include="CodeModels\VBVsLiteral.cs" />
+    <Compile Include="CodeModels\VBVsLt.cs" />
+    <Compile Include="CodeModels\VBVsMid.cs" />
+    <Compile Include="CodeModels\VBVsMinus.cs" />
+    <Compile Include="CodeModels\VBVsMod.cs" />
+    <Compile Include="CodeModels\VBVsMult.cs" />
+    <Compile Include="CodeModels\VBVsNegation.cs" />
+    <Compile Include="CodeModels\VBVsNeq.cs" />
+    <Compile Include="CodeModels\VBVsNew.cs" />
+    <Compile Include="CodeModels\VBVsNot.cs" />
+    <Compile Include="CodeModels\VBVsOr.cs" />
+    <Compile Include="CodeModels\VBVsPlus.cs" />
+    <Compile Include="CodeModels\VBVsPow.cs" />
+    <Compile Include="CodeModels\VBVsStruct.cs" />
+    <Compile Include="CodeModels\VBVsTypeOf.cs" />
+    <Compile Include="CodeModels\VBVsXor.cs" />
+    <Compile Include="CodeModels\VBWhileWendStmt.cs" />
+    <Compile Include="CodeModels\VBWidthStmt.cs" />
+    <Compile Include="CodeModels\VBWithStmt.cs" />
+    <Compile Include="CodeModels\VBWriteStmt.cs" />
+    <Compile Include="ConversionMessages\UnSupportedClassTerminate.cs" />
+    <Compile Include="ConversionMessages\UnSupportedSavePicture.cs" />
+    <Compile Include="ConversionMessages\UnSupportedGoSubReturn.cs" />
+    <Compile Include="CodeModels\VBAppActivateStmt.cs" />
+    <Compile Include="CodeModels\VBArg.cs" />
+    <Compile Include="CodeModels\VBArgList.cs" />
+    <Compile Include="CodeModels\VBAsTypeClause.cs" />
+    <Compile Include="CodeModels\VBBaseAtomicCallStatement.cs" />
+    <Compile Include="CodeModels\VBBaseCodeModel.cs" />
+    <Compile Include="CodeModels\VBBaseCommentModel.cs" />
+    <Compile Include="CodeModels\VBBaseModel.cs" />
+    <Compile Include="CodeModels\VBBaseModule.cs" />
+    <Compile Include="CodeModels\VBBaseBlockStatement.cs" />
+    <Compile Include="CodeModels\VBBaseSingleLineStatement.cs" />
+    <Compile Include="CodeModels\VBBaseStatement.cs" />
+    <Compile Include="CodeModels\VBBeepStmt.cs" />
+    <Compile Include="CodeModels\VBChDirStmt.cs" />
+    <Compile Include="CodeModels\VBChDriveStmt.cs" />
+    <Compile Include="CodeModels\VBClassModule.cs" />
+    <Compile Include="CodeModels\VBCloseStmt.cs" />
+    <Compile Include="CodeModels\VBComment.cs" />
+    <Compile Include="CodeModels\VBConstSubStmt.cs" />
+    <Compile Include="CodeModels\VBConstStmt.cs" />
+    <Compile Include="CodeModels\VBDateStmt.cs" />
+    <Compile Include="CodeModels\VBDeclareStmt.cs" />
+    <Compile Include="CodeModels\VBDeleteSettingStmt.cs" />
+    <Compile Include="CodeModels\VBDoLoopStmt.cs" />
+    <Compile Include="CodeModels\VBEndStmt.cs" />
+    <Compile Include="CodeModels\VBEnumerationStmt_Constant.cs" />
+    <Compile Include="CodeModels\VBEnumerationStmt.cs" />
+    <Compile Include="CodeModels\VBEraseStmt.cs" />
+    <Compile Include="CodeModels\VBErrorStmt.cs" />
+    <Compile Include="CodeModels\VBEventStmt.cs" />
+    <Compile Include="CodeModels\VBExitStmt.cs" />
+    <Compile Include="CodeModels\VBECS_MemberProcedureCall.cs" />
+    <Compile Include="CodeModels\VBECS_ProcedureCall.cs" />
+    <Compile Include="CodeModels\VBFilecopyStmt.cs" />
+    <Compile Include="CodeModels\VBForEachStmt.cs" />
+    <Compile Include="CodeModels\VBForNextStmt.cs" />
+    <Compile Include="CodeModels\VBFunctionStmt.cs" />
+    <Compile Include="CodeModels\VBGetStmt.cs" />
+    <Compile Include="CodeModels\VBMacroConstStmt.cs" />
+    <Compile Include="CodeModels\VBMacroElseBlockStmt.cs" />
+    <Compile Include="CodeModels\VBMacroElseIfBlockStmt.cs" />
+    <Compile Include="CodeModels\VBMacroIfBlockStmt.cs" />
+    <Compile Include="CodeModels\VBMacroIfThenElseStmt.cs" />
+    <Compile Include="CodeModels\VBOptionCompareStmt.cs" />
+    <Compile Include="CodeModels\VBPropertyGetStmt.cs" />
+    <Compile Include="CodeModels\VBPropertyLetStmt.cs" />
+    <Compile Include="CodeModels\VBPropertySetStmt.cs" />
+    <Compile Include="CodeModels\VBScope.cs" />
+    <Compile Include="CodeModels\VBStandardModule.cs" />
+    <Compile Include="CodeModels\VBSubStmt.cs" />
+    <Compile Include="CodeModels\VBSubscript.cs" />
+    <Compile Include="CodeModels\VBSubscripts.cs" />
+    <Compile Include="CodeModels\VBTypeStmt.cs" />
+    <Compile Include="CodeModels\VBTypeStmt_Element.cs" />
+    <Compile Include="CodeModels\VBTypeHint.cs" />
+    <Compile Include="CodeModels\VBVariableSubStmt.cs" />
+    <Compile Include="CodeModels\VBVariableStmt.cs" />
+    <Compile Include="CodeModels\VBVisibility.cs" />
+    <Compile Include="ConversionMessages\AmbiguousDeclareTypeHint.cs" />
+    <Compile Include="ConversionMessages\ConversionMessageBase.cs" />
+    <Compile Include="ConversionMessages\NonZeroOptionBase.cs" />
+    <Compile Include="ConversionMessages\UnSupportedCurrencyType.cs" />
+    <Compile Include="ConversionMessages\UnSupportedDefType.cs" />
+    <Compile Include="ConversionMessages\UnSupportedFixedLengthString.cs" />
+    <Compile Include="ConversionMessages\UnSupportedOnGoSub.cs" />
+    <Compile Include="ConversionMessages\UnSupportedOnGoTo.cs" />
+    <Compile Include="Converters\Common.cs" />
+    <Compile Include="Converters\VB6ActveXDllConverter.cs" />
+    <Compile Include="CodeModels\VB6ModuleCodeModelFactory.cs" />
+    <Compile Include="Converters\VBNetCodeFileWriter.cs" />
+    <Compile Include="Converters\VBNetProjectFileWriter.cs" />
+    <Compile Include="Parsers\VisualBasic6ErrorListener.cs" />
+    <Compile Include="Parsers\VisualBasic6ProjectParser.cs" />
+    <Compile Include="ProjectModels\VB6ExternalReference.cs" />
+    <Compile Include="ProjectModels\VB6ParseError.cs" />
+    <Compile Include="ProjectModels\VB6Project.cs" />
+    <Compile Include="ProjectModels\VB6ProjectReference.cs" />
+    <Compile Include="ProjectModels\VB6SourceFile.cs" />
+    <Compile Include="ProjectModels\VBNetProject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitors\VB6CodeModelVisitor.cs" />
+    <Compile Include="Visitors\VB6ModuleVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\AssemblyInfo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\ClassLibraryProject.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\ConsoleAppProject.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\WindowsAppProject.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Antlr4 Include="VisualBasic6.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <Listener>False</Listener>
+      <Visitor>True</Visitor>
+      <CustomToolNamespace>VB6ActiveXDllConverter.Parsers.VB6</CustomToolNamespace>
+    </Antlr4>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.props'))" />
+    <Error Condition="!Exists('..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.targets'))" />
+  </Target>
+  <Import Project="..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.targets" Condition="Exists('..\packages\Antlr4.CodeGenerator.4.6.5-rc002\build\Antlr4.CodeGenerator.targets')" />
+</Project>
